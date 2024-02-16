@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+article .ql-size-huge {
+  @apply text-3xl;
+}
+article .ql-align-center {
+  @apply text-center;
+}
+& .ql-align-right {
+  @apply text-right;
+}
+article .ql-syntax {
+  @apply bg-black text-white font-sans rounded-sm;
+}
+article blockquote {
+  padding-left: 1rem;
+  position: relative;
+}
+article blockquote::before {
+  content: '';
+  height: 90%;
+  background-color: #ddd;
+  width: 4px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+article ul {
+  @apply list-disc list-inside;
+}
+article ol {
+  @apply list-decimal list-inside;
+}
+article h1 {
+  font-size: 2em;
+}
+article h2 {
+  font-size: 1.5em;
+}
+article h3 {
+  font-size: 1.17em;
+}
+article h4 {
+  font-size: 1em;
+}
+article a {
+  color: #2563eb;
+  text-decoration: underline;
+}
