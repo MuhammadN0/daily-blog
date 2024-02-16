@@ -55,3 +55,27 @@ article a {
   color: #2563eb;
   text-decoration: underline;
 }
+.action-link {
+  position: relative;
+}
+.action-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  width: 0;
+  height: 0;
+  transition-property: width, height;
+  transition-duration: 300ms;
+  z-index: -1;
+  border-radius: 50%;
+}
+.action-link:hover::before {
+  width: 110%;
+  height: 110%;
+}
+.action-link:hover {
+  color: white;
+}

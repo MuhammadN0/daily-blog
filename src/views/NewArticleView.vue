@@ -11,7 +11,7 @@
         <input id="image" type="file" />
       </div>
       <div>
-        <QuillEditor />
+        <QuillEditor :toolbar="toolbarOptions" />
       </div>
     </form>
   </div>
@@ -20,5 +20,7 @@
 
 <script setup>
   import {QuillEditor} from '@vueup/vue-quill';
-  import {}
+  import '@vueup/vue-quill/dist/vue-quill.snow.css';
+  import {toolbarOptions} from '@/helpers/constants'
+
 </script>
