@@ -70,6 +70,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import { toolbarOptions } from '@/helpers/constants'
@@ -84,6 +85,7 @@ const tags = ref([])
 const tag = ref('')
 const errors = ref({})
 const isLoading = ref(false)
+const router = useRouter();
 function resetContent() {
   content.value = '<p></p>'
   errors.value = {}
@@ -133,5 +135,6 @@ async function handleSubmit() {
     tags: tags.value
   })
   isLoading.value = false
+  router.push({name:'thank-you'})
 }
 </script>
