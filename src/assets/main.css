@@ -6,18 +6,26 @@
   transition-property: background-color;
   transition-duration: 300ms;
 }
-
-article .ql-size-huge {
-  @apply text-3xl;
-}
-article .ql-align-center {
-  @apply text-center;
-}
-& .ql-align-right {
-  @apply text-right;
-}
-article .ql-syntax {
-  @apply bg-black text-white font-sans rounded-sm;
+@layer components {
+  article .ql-size-huge {
+    @apply text-3xl;
+  }
+  article .ql-align-center {
+    @apply text-center;
+  }
+  & .ql-align-right {
+    @apply text-right;
+  }
+  article .ql-syntax {
+    @apply bg-black text-white font-sans rounded-sm;
+  }
+  article ul {
+    @apply list-disc list-inside;
+  }
+  article ol {
+    @apply list-decimal list-inside;
+  }
+  
 }
 article blockquote {
   padding-left: 1rem;
@@ -33,12 +41,8 @@ article blockquote::before {
   top: 50%;
   transform: translateY(-50%);
 }
-article ul {
-  @apply list-disc list-inside;
-}
-article ol {
-  @apply list-decimal list-inside;
-}
+
+
 article h1 {
   font-size: 2em;
 }

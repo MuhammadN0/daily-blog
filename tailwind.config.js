@@ -2,8 +2,11 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      serif: ['Poppins', 'ui-serif', 'Georgia']
+    },
     extend: {}
   },
   plugins: [],
-  darkMode:'class',
+  darkMode: 'class'
 }
