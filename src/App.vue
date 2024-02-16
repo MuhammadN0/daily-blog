@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <main class="px-4 min-h-dvh">
+  <main class="px-4 min-h-dvh md:px-28">
     <RouterView />
   </main>
 </template>

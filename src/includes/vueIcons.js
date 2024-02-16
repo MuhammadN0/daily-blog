@@ -4,7 +4,8 @@ import {
   FaPencilAlt,
   BiSearch,
   PrSpinner,
-  FaHome
+  FaHome,
+  BiThreeDotsVertical
 } from 'oh-vue-icons/icons'
 import { addIcons } from 'oh-vue-icons'
-addIcons(MdPerson, CoDailymotion, FaPencilAlt, BiSearch, PrSpinner, FaHome)
+addIcons(MdPerson, CoDailymotion, FaPencilAlt, BiSearch, PrSpinner, FaHome, BiThreeDotsVertical)

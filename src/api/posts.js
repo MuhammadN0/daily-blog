@@ -9,7 +9,6 @@ export async function addNewPost({ title, content, image,tags }) {
     const imagesRef = ref(storage, 'post-images/'+image.name+Math.random().toString());
     const imageRef = await uploadBytes(imagesRef, image)
     const url = await getDownloadURL(imageRef.ref)
-    console.log(url);
     const postsColRef = collection(db, 'posts')
     await addDoc(postsColRef, {
       title,

@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center justify-between border-b-2 border-gray-800 px-4 py-4">
+  <nav class="flex items-center justify-between border-b-2 border-gray-800 px-4 py-4 md:px-28 relative">
     <Logo />
     <SearchBar />
     <NavActions />
