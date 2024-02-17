@@ -73,6 +73,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import intus from 'intus'
 import { isRequired, isSame, isEmail, isImage, isMin, isMax } from 'intus/rules'
 import { register } from '@/api/authentication'
@@ -84,6 +85,7 @@ const email = ref('')
 const image = ref(null)
 const password = ref('')
 const confirmPassword = ref('')
+const router = useRouter()
 function handleImage(e) {
   image.value = e.target.files[0]
 }
@@ -123,5 +125,6 @@ async function handleSubmit() {
     name: name.value
   })
   isLoading.value = false
+  router.push({ name: 'home' })
 }
 </script>

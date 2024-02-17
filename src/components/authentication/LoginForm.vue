@@ -38,6 +38,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import {useRouter} from 'vue-router'
 import intus from 'intus'
 import { isRequired, isEmail } from 'intus/rules'
 import { login } from '@/api/authentication'
@@ -46,6 +47,7 @@ const isLoading = ref(false)
 const errors = ref({})
 const email = ref('')
 const password = ref('')
+const router = useRouter();
 async function handleSubmit() {
   isLoading.value = true
   errors.value = {}
@@ -68,6 +70,8 @@ async function handleSubmit() {
     email: email.value,
     password: password.value,
   })
-  isLoading.value = false
+  isLoading.value = false;
+  router.push({name:'home'});
+
 }
 </script>

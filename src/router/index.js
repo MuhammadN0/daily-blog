@@ -4,21 +4,22 @@ import NewArticleView from '@/views/NewArticleView.vue'
 import ThankYouView from '@/views/ThankYouView.vue'
 import AuthenticationView from '@/views/AuthenticationView.vue'
 import { auth } from '@/includes/firebase'
+import AccountView from '@/views/AccountView.vue'
 
-function requireAuth(to,from,next) {
+function requireAuth(to, from, next) {
   let user = auth.currentUser
-  if(!user){
-    next({name:'authentication'})
+  if (!user) {
+    next({ name: 'authentication' })
   } else {
-    next();
+    next()
   }
 }
-function requireNoAuth(to,from,next){
+function requireNoAuth(to, from, next) {
   let user = auth.currentUser
-  if(!user){
+  if (!user) {
     next()
   } else {
-    next({name:'home'})
+    next({ name: 'home' })
   }
 }
 const router = createRouter({
@@ -27,25 +28,31 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: HomeView
     },
     {
       path: '/new-post',
-      name:'new-post',
-      component:NewArticleView,
-      beforeEnter:requireAuth,
+      name: 'new-post',
+      component: NewArticleView,
+      beforeEnter: requireAuth
     },
     {
       path: '/thank-you',
       name: 'thank-you',
       component: ThankYouView,
-      beforeEnter:requireAuth,
+      beforeEnter: requireAuth
     },
     {
       path: '/authentication',
       name: 'authentication',
       component: AuthenticationView,
       beforeEnter: requireNoAuth
+    },
+    {
+      name: 'account',
+      path: '/account',
+      component: AccountView,
+      beforeEnter: requireAuth
     }
   ]
 })

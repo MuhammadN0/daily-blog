@@ -2,6 +2,7 @@ import { auth, db, storage } from '@/includes/firebase'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
   updateProfile
 } from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
@@ -55,5 +56,15 @@ export async function login({ email, password }) {
   } catch (err) {
     toast.error('Something went wrong.', { position: 'top' })
     console.error(err.message)
+  }
+}
+
+export async function logoutApi() {
+  try {
+    await signOut(auth)
+    toast.success('Logged out', { position: 'top' })
+  } catch (err) {
+    console.error(err.message)
+    toast.error('Something went wrong', { position: 'top' })
   }
 }
