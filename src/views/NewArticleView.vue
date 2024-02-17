@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl pt-5 mb-5">Add a new post</h1>
+    <h1 class="text-3xl pt-10 mb-5">Add a new post</h1>
     <form @submit.prevent="handleSubmit">
       <div class="grid grid-cols-3 mb-2 items-center gap-0.5 md:gap-4">
         <label for="title">Post title</label>
@@ -20,7 +20,7 @@
         <input
           id="image"
           type="file"
-          class="file:bg-fuchsia-400 file:border-none file:text-gray-50 file:rounded file:py-1"
+          class="file:bg-fuchsia-400 file:cursor-pointer file:border-none file:text-gray-50 file:rounded file:py-1"
           @input="handleImage"
           :disabled="isLoading"
         />
