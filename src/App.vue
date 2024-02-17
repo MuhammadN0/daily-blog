@@ -6,8 +6,5 @@
 </template>
 
 <script setup>
-import {auth} from '@/includes/firebase'
 import NavBar from '@/components/ui/NavBar/NavBar.vue'
-import { onMounted } from 'vue';
-onMounted(() =>console.log(auth.currentUser));
 </script>

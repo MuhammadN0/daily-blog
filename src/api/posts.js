@@ -24,7 +24,7 @@ export async function addNewPost({ title, content, image, tags }) {
       tags,
       createdAt: serverTimestamp(),
     })
-    toast.success('success', { position: 'top' })
+    toast.success('Success', { position: 'top' })
   } catch (err) {
     console.error(err.message)
     toast.error('Something went wrong', { position: 'top' })

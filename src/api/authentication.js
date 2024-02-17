@@ -1,10 +1,13 @@
 import { auth, db, storage } from '@/includes/firebase'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile
+} from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { useToast } from 'vue-toast-notification'
 const toast = useToast()
-
 
 export async function register({ name, email, password, image }) {
   try {
@@ -24,11 +27,12 @@ export async function register({ name, email, password, image }) {
         email: email,
         role: 'author'
       })
+      toast.success('Success', { position: 'top' })
       return
     }
     const imageRef = ref(storage, 'users-images/' + image.name + Math.random().toString())
-    const imageURLRef = await uploadBytes(imageRef, image)
-    const url = await getDownloadURL(imageURLRef)
+    await uploadBytes(imageRef, image)
+    const url = await getDownloadURL(imageRef)
     await updateProfile(createdUserRef.user, { displayName: name, photoURL: url })
     await addDoc(usersCollection, {
       uid: createdUserRef.user.uid,
@@ -42,5 +46,14 @@ export async function register({ name, email, password, image }) {
     console.error(err.message)
     toast.error('Something went wrong', { position: 'top' })
   }
+}
 
+export async function login({ email, password }) {
+  try {
+    await signInWithEmailAndPassword(auth, email, password)
+    toast.success('You are logged in now.', { position: 'top' })
+  } catch (err) {
+    toast.error('Something went wrong.', { position: 'top' })
+    console.error(err.message)
+  }
 }
