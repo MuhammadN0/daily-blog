@@ -8,9 +8,17 @@ import { OhVueIcon } from 'oh-vue-icons'
 import '@/includes/vueIcons'
 import App from './App.vue'
 import router from './router'
-const app = createApp(App)
-app.use(createPinia())
-app.use(router)
-app.use(ToastPlugin)
-app.component('v-icon', OhVueIcon)
-app.mount('#app')
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from './includes/firebase'
+
+let app
+onAuthStateChanged(auth,() => {
+  if (!app) {
+    app = createApp(App)
+    app.use(createPinia())
+    app.use(router)
+    app.use(ToastPlugin)
+    app.component('v-icon', OhVueIcon)
+    app.mount('#app')
+  }
+})

@@ -25,7 +25,6 @@
   article ol {
     @apply list-decimal list-inside;
   }
-  
 }
 article blockquote {
   padding-left: 1rem;
@@ -41,7 +40,6 @@ article blockquote::before {
   top: 50%;
   transform: translateY(-50%);
 }
-
 
 article h1 {
   font-size: 2em;
@@ -61,6 +59,7 @@ article a {
 }
 .action-link {
   position: relative;
+  z-index:99;
 }
 .action-link::before {
   content: '';
@@ -82,4 +81,17 @@ article a {
 }
 .action-link:hover {
   color: white;
+}
+.context-memu {
+  animation: go-down ease-out 300ms forwards;
+}
+@keyframes go-down {
+  0% {
+    transform: translateY(-30%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
 }

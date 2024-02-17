@@ -26,7 +26,7 @@
     >
       <v-icon name="bi-three-dots-vertical" />
     </button>
-    <div v-if="isMenuOpen" class="absolute bg-gray-50 border-2 border-gray-800 top-[80%] right-0 flex flex-col">
+    <div v-if="isMenuOpen" class="absolute bg-gray-50 border-2 border-gray-800 top-[80%] right-0 flex flex-col context-memu">
       <RouterLink
         class=" py-2 px-2 hover:bg-gray-300"
         :to="{ name: 'home' }"
