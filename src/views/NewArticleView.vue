@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-12">
     <h1 class="text-3xl pt-10 mb-5">Add a new post</h1>
     <form @submit.prevent="handleSubmit">
       <div class="grid grid-cols-3 mb-2 items-center gap-0.5 md:gap-4">
@@ -73,7 +73,7 @@ const content = ref('')
 const title = ref('')
 const image = ref(null)
 const tags = ref([])
-const tag = ref('');
+const tag = ref('')
 const errors = ref({})
 const isLoading = ref(false)
 const router = useRouter()
@@ -82,8 +82,8 @@ function resetContent() {
   errors.value = {}
   tags.value = []
 }
-function handleImage(e){
-  image.value = e.target.files[0];
+function handleImage(e) {
+  image.value = e.target.files[0]
 }
 function addTag() {
   if (tags.value.includes(tag.value) || !tag.value.length) return

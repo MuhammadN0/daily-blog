@@ -8,11 +8,14 @@
     }"
   >
     <TagSideBar v-if="viewSideBarsCondition" />
-    <div class="col-span-8">
+    <div class="md:col-span-8">
       <RouterView />
     </div>
     <TrendingSideBar v-if="viewSideBarsCondition" />
   </main>
+  <footer class="bg-gray-800 text-gray-50 py-32">
+    Footer
+  </footer>
 </template>
 
 <script setup>

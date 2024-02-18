@@ -1,23 +1,30 @@
 <template>
   <div>
-    <h1>Comments</h1>
+    <AddComment />
+    <h2>Comments</h2>
+    <div v-if="comments.length">
+      <div v-for="comment in comments" :key="comment.id">{{ comment.content }}</div>
+    </div>
+    <div v-if="!isLoading && !comments.length">There're no comments at the moment.</div>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
-import useGetComments from '@/hooks/useGetComments';
-import { onBeforeUnmount } from 'vue';
+import { onBeforeUnmount } from 'vue'
+import { useRoute } from 'vue-router'
+import useGetComments from '@/hooks/useGetComments'
+import AddComment from './AddComment.vue'
 const route = useRoute()
-const {isLoading,getComments,comments} = useGetComments(route.params.postId);
-function handleScroll() {
+const { isLoading, getComments, comments } = useGetComments(route.params.id)
+async function handleScroll() {
   const { offsetHeight, scrollTop } = document.documentElement
   const { innerHeight } = window
   const bottomOfPage = Math.round(scrollTop) + innerHeight === offsetHeight
   if (bottomOfPage) {
-    getComments()
+    await getComments()
   }
 }
-window.addEventListener('scroll',handleScroll);
-onBeforeUnmount(() => window.removeEventListener('scroll',handleScroll))
+getComments()
+window.addEventListener('scroll', handleScroll)
+onBeforeUnmount(() => window.removeEventListener('scroll', handleScroll))
 </script>

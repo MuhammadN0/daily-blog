@@ -6,6 +6,19 @@
   transition-property: background-color;
   transition-duration: 300ms;
 }
+article .ql-align-center {
+  text-align: center;
+}
+article .ql-syntax {
+  background-color: black;
+  color: white;
+  font-family: 'lora';
+  border-radius: 5px;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
 @layer components {
   article .ql-size-huge {
     @apply text-3xl;
@@ -13,8 +26,8 @@
   article .ql-align-center {
     @apply text-center;
   }
-  & .ql-align-right {
-    @apply text-right;
+  article .ql-align-right {
+    text-align: center;
   }
   article .ql-syntax {
     @apply bg-black text-white font-sans rounded-sm;
@@ -97,7 +110,7 @@ article a {
   height: 15px;
   width: 15px;
   z-index: -1;
-  background: radial-gradient( rgba(74, 222, 128, 0.595) , rgba(74, 222, 128, 0));
+  background: radial-gradient(rgba(74, 222, 128, 0.595), rgba(74, 222, 128, 0));
   top: -51%;
   left: -4px;
   border-radius: 50%;
