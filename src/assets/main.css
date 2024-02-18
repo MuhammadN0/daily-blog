@@ -59,7 +59,7 @@ article a {
 }
 .action-link {
   position: relative;
-  z-index:99;
+  z-index: 99;
 }
 .action-link::before {
   content: '';
@@ -85,6 +85,24 @@ article a {
 .context-memu {
   animation: go-down ease-out 300ms forwards;
 }
+.special-blob {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: relative;
+}
+.special-blob::before {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  z-index: -1;
+  background: radial-gradient( rgba(74, 222, 128, 0.595) , rgba(74, 222, 128, 0));
+  top: -51%;
+  left: -4px;
+  border-radius: 50%;
+}
+
 @keyframes go-down {
   0% {
     transform: translateY(-30%);

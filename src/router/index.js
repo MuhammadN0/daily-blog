@@ -5,6 +5,7 @@ import ThankYouView from '@/views/ThankYouView.vue'
 import AuthenticationView from '@/views/AuthenticationView.vue'
 import { auth } from '@/includes/firebase'
 import AccountView from '@/views/AccountView.vue'
+import PostView from '@/views/PostView.vue'
 
 function requireAuth(to, from, next) {
   let user = auth.currentUser
@@ -53,6 +54,11 @@ const router = createRouter({
       path: '/account',
       component: AccountView,
       beforeEnter: requireAuth
+    },
+    {
+      name:'post',
+      path:'/post/:id',
+      component: PostView,
     }
   ]
 })
