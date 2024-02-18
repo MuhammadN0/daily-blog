@@ -1,5 +1,5 @@
 <template>
-  <aside class="md:col-span-1 py-10 border-r-2 border-gray-800">
+  <aside class="md:col-span-1 hidden md:block py-10 border-r-2 border-gray-800">
     <ul class="flex flex-col gap-4">
       <li>
         <RouterLink
@@ -56,4 +56,5 @@
 <script setup>
 import { useRoute } from 'vue-router'
 const route = useRoute()
+
 </script>

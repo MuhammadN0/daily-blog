@@ -1,5 +1,5 @@
 <template>
-  <aside class="md:col-span-3 py-10 border-l-2 border-gray-800 pl-7 pr-3">
+  <aside class="md:col-span-3 hidden md:block py-10 border-l-2 border-gray-800 pl-4 ">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span>Trending</span>
@@ -88,7 +88,7 @@
     <a
       href="https://www.linkedin.com/in/muhammadn0/"
       target="_blank"
-      class="bg-gray-900 block text-center py-44 relative text-gray-50 text-4xl hover:underline"
+      class="bg-gray-900 block text-center py-44 relative text-gray-50 text-4xl hover:underline overflow-hidden"
     >
       Learn More
       <div class="absolute w-14 aspect-square rounded-full bg-white -top-7 -left-7"></div>
