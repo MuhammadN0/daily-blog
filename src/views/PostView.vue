@@ -2,7 +2,7 @@
   <div v-if="isLoading" class="text-fuchsia-400 flex items-center justify-center py-32">
     <v-icon name="pr-spinner" animation="spin" scale="7" />
   </div>
-  <PostContent v-if="post?.content" :post="post" />
+  <PostContent v-if="post?.content"/>
   <div
     v-if="!post?.content && !isLoading"
     class="flex items-center justify-center text-center flex-col py-32"

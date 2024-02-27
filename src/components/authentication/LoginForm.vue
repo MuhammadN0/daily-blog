@@ -38,7 +38,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 import intus from 'intus'
 import { isRequired, isEmail } from 'intus/rules'
 import { login } from '@/api/authentication'
@@ -47,19 +47,19 @@ const isLoading = ref(false)
 const errors = ref({})
 const email = ref('')
 const password = ref('')
-const router = useRouter();
+const router = useRouter()
 async function handleSubmit() {
   isLoading.value = true
   errors.value = {}
   const validation = intus.validate(
     {
       email: email.value,
-      password: password.value,
+      password: password.value
     },
     {
       email: [isRequired(), isEmail()],
-      password: [isRequired()],
-    },
+      password: [isRequired()]
+    }
   )
   if (!validation.passes()) {
     isLoading.value = false
@@ -68,10 +68,10 @@ async function handleSubmit() {
   }
   await login({
     email: email.value,
-    password: password.value,
+    password: password.value
   })
-  isLoading.value = false;
-  router.push({name:'home'});
-
+  isLoading.value = false
+  //router.push({name:'home'});
+  router.back()
 }
 </script>

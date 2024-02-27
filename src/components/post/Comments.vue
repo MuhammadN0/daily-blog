@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AddComment />
+    <AddComment v-if="user" />
     <h2 class="mb-3">Comments</h2>
     <div v-if="comments.length" class="space-y-3">
       <Comment v-for="comment in comments" :comment="comment" :key="comment.id" />
@@ -15,9 +15,11 @@ import { useRoute } from 'vue-router'
 import useGetComments from '@/hooks/useGetComments'
 import AddComment from './AddComment.vue'
 import Comment from './Comment.vue'
+import useUser from '@/hooks/useUser'
 const route = useRoute()
 const { isLoading, getComments, comments } = useGetComments(route.params.id)
 const bottomReached = ref(false)
+const {user} = useUser()
 async function handleScroll() {
   if (bottomReached.value) return
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight
