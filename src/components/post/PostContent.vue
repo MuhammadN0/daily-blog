@@ -49,14 +49,16 @@ import { useRoute } from 'vue-router'
 import useUser from '@/hooks/useUser'
 const route = useRoute()
 const { post } = useGetPost(route.params.id)
-const {user} = useUser();
+const { user } = useUser()
 async function handleLike() {
   try {
-    const newLikedBy = post.value.likedBy ? [...post.value.likedBy, user.value.uid] : [user.value.uid];
-    const newLikes = post.value.likes + 1;
-    await updatePost({postId: route.params.id, data:{likedBy:newLikedBy,likes:newLikes}})
-    post.value.likes = newLikes;
-    post.value.likedBy = newLikedBy;
+    const newLikedBy = post.value.likedBy
+      ? [...post.value.likedBy, user.value.uid]
+      : [user.value.uid]
+    const newLikes = post.value.likes + 1
+    await updatePost({ postId: route.params.id, data: { likedBy: newLikedBy, likes: newLikes } })
+    post.value.likes = newLikes
+    post.value.likedBy = newLikedBy
   } catch (e) {
     console.error(e.message)
   }
