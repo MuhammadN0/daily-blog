@@ -20,7 +20,7 @@ export async function addComment({content,postId}){
 
 export async function deleteComment(id) {
   try {
-    const commentDoc = doc(db,'/comments'+id);
+    const commentDoc = doc(db,'/comments/'+id);
     await deleteDoc(commentDoc)
   } catch (err) {
     console.error(err.message);

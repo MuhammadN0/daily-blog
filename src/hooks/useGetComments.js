@@ -12,9 +12,9 @@ import {
 } from 'firebase/firestore'
 import { ref } from 'vue'
 
+const isLoading = ref(false)
+const comments = ref([])
 export default function useGetComments(postId) {
-  const isLoading = ref(false)
-  const comments = ref([])
   async function getComments() {
     try {
       isLoading.value = true
