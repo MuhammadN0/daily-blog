@@ -21,7 +21,6 @@ export default function useGetComments(postId) {
       const commentsColRef = collection(db, 'comments')
       let snapshots
       if (comments.value.length) {
-        console.log('later fetch');
         const lastDoc = await getDoc(
           doc(db, 'comments/' + comments.value[comments.value.length - 1].id)
         )
@@ -32,9 +31,8 @@ export default function useGetComments(postId) {
           startAfter(lastDoc),
           limit(5)
         )
-        snapshots = await getDocs(commentsQuery)
+        if (comments.value[comments.value.length - 1].id) snapshots = await getDocs(commentsQuery)
       } else {
-        console.log('First fetch');
         const commentsQuery = query(
           commentsColRef,
           where('pid', '==', postId),
@@ -44,7 +42,6 @@ export default function useGetComments(postId) {
         snapshots = await getDocs(commentsQuery)
       }
       snapshots.forEach((_doc) => comments.value.push({ ..._doc.data(), id: _doc.id }))
-      console.log(comments.value);
     } catch (err) {
       console.error(err.message)
     } finally {

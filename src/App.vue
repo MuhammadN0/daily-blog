@@ -13,9 +13,7 @@
     </div>
     <TrendingSideBar v-if="viewSideBarsCondition" />
   </main>
-  <footer class="bg-gray-800 text-gray-50 py-32">
-    Footer
-  </footer>
+  <footer id="footer" class="bg-gray-800 text-gray-50 py-32">Footer</footer>
 </template>
 
 <script setup>

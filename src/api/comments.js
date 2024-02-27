@@ -1,6 +1,6 @@
 import { auth, db } from "@/includes/firebase"
 
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, serverTimestamp } from "firebase/firestore";
 
 export async function addComment({content,postId}){
   try{
@@ -13,6 +13,15 @@ export async function addComment({content,postId}){
       photoURL: auth.currentUser.photoURL,
       createdAt: serverTimestamp(),
     })
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+
+export async function deleteComment(id) {
+  try {
+    const commentDoc = doc(db,'/comments'+id);
+    await deleteDoc(commentDoc)
   } catch (err) {
     console.error(err.message);
   }

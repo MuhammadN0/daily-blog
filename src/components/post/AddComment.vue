@@ -11,7 +11,10 @@
       <AppButton :disabled="isLoading" type="secondary" @click.prevent="content = ''"
         >Cancel</AppButton
       >
-      <AppButton :disabled="isLoading">Submit</AppButton>
+      <AppButton :disabled="isLoading">
+        <template v-if="!isLoading">Submit</template>
+        <v-icon name="pr-spinner" animation="spin" v-else />
+      </AppButton>
     </div>
   </form>
 </template>
